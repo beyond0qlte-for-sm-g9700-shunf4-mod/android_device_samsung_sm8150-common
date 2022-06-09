@@ -78,6 +78,9 @@ BOARD_ROOT_EXTRA_FOLDERS := \
     spu \
     omr
 
+# FM
+BOARD_HAS_QCOM_FM := true
+
 # SELinux
 include device/qcom/sepolicy/SEPolicy.mk
 
