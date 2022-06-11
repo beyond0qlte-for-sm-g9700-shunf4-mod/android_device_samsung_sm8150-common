@@ -3,3 +3,7 @@ ro.netflix.bsp_rev=Q855-16947-1
 
 # Qcom
 ro.vendor.qti.va_aosp.support=1
+
+# FM
+vendor.bluetooth.soc=cherokee
+

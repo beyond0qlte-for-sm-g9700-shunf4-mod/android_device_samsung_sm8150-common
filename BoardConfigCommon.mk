@@ -79,6 +79,7 @@ BOARD_ROOT_EXTRA_FOLDERS := \
     omr
 
 # FM
+BOARD_HAS_QCA_SM_SOC := "cherokee"
 BOARD_HAS_QCOM_FM := true
 
 # SELinux
