@@ -27,11 +27,18 @@ etc/permissions/qti_telephony_hidl_wrapper.xml
 etc/sysconfig/qti_whitelist.xml
 
 # FM
-lib64/fm_helium.so
-lib64/libfm-hci.so
-lib/fm_helium.so
-lib/libfm-hci.so
--product/lib64/vendor.qti.hardware.fm@1.0.so
+# Samsung uses richwave rtc6213n, instead of qualcomm
+# lib64/fm_helium.so
+# lib64/libfm-hci.so
+# lib/fm_helium.so
+# lib/libfm-hci.so
 -lib64/vendor.qti.hardware.fm@1.0.so
--product/lib/vendor.qti.hardware.fm@1.0.so
 -lib/vendor.qti.hardware.fm@1.0.so
+
+lib64/libfmradio_jni.so
+lib/libfmradio_jni.so
+lib64/libsecnativefeature.so
+lib/libsecnativefeature.so
+lib64/libfloatingfeature.so
+lib/libfloatingfeature.so
+

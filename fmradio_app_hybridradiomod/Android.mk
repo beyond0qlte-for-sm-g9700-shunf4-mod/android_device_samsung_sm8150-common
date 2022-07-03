@@ -1,0 +1,13 @@
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := HybridRadioMod
+LOCAL_MODULE_TAGS := optional
+# tell dexopt not to try resigning the apks
+LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
+
+include $(BUILD_PREBUILT)

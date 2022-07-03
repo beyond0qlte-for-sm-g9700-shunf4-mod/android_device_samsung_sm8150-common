@@ -29,13 +29,20 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Snap
 
-# FM Radio
-PRODUCT_PACKAGES += \
-    FM2 \
-    libqcomfm_jni \
-    qcom.fmradio
+# FM Radio (Qualcomm)
+# PRODUCT_PACKAGES += \
+    # FM2 \
+    # libqcomfm_jni \
+    # qcom.fmradio
 
-PRODUCT_BOOT_JARS += qcom.fmradio
+# PRODUCT_BOOT_JARS += qcom.fmradio
+
+# Prebuilt (Richwave FM Radio)
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(COMMON_PATH)/fmradio_prebuilt/system_root/system,system)
+
+PRODUCT_PACKAGES += \
+    HybridRadioMod
 
 # HotwordEnrollement app permissions
 PRODUCT_COPY_FILES += \
