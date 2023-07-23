@@ -40,6 +40,8 @@ LOCAL_SRC_FILES := \
     TouchscreenGesture.cpp \
     service.cpp
 
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
+
 LOCAL_REQUIRED_MODULES := \
     lineage.touch@1.0-service.samsung.rc \
     lineage.touch@1.0-service.samsung.xml
