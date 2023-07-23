@@ -7,6 +7,9 @@
 BOARD_VENDOR := samsung
 COMMON_PATH := device/samsung/sm8150-common
 
+# Include path
+TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a
