@@ -40,12 +40,13 @@ def AddImage(info, basename, dest):
 
 def AddTrustZoneAssertion(info, input_zip):
   android_info = info.input_zip.read("OTA/android-info.txt")
-  m = re.search(r'require\s+version-trustzone\s*=\s*(\S+)', android_info)
+  m = re.search(r'require\s+version-trustzone\s*=\s*(\S+)', android_info.decode('utf-8'))
   if m:
     versions = m.group(1).split('|')
     if len(versions) and '*' not in versions:
-      cmd = 'assert(samsung.verify_trustzone(' + ','.join(['"%s"' % tz for tz in versions]) + ') == "1" || abort("ERROR: This package requires firmware from an Android 10 based stock ROM build. Please upgrade firmware and retry!"););'
+      cmd = 'assert(samsung.verify_trustzone(' + ','.join(['"%s"' % tz for tz in versions]) + ') == "1" || abort("ERROR: This package requires firmware from an Android 12 based stock ROM build. Please upgrade firmware and retry!"););'
       info.script.AppendExtra(cmd)
+  return
 
 def OTA_InstallEnd(info):
   AddImage(info, "dtbo.img", "/dev/block/bootdevice/by-name/dtbo")

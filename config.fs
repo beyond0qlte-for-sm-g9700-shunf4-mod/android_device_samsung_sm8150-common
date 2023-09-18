@@ -1,3 +1,9 @@
+[AID_VENDOR_QRTR]
+value:2906
+
+[AID_VENDOR_SPAY]
+value:5279
+
 [prism/]
 mode: 0771
 user: AID_ROOT

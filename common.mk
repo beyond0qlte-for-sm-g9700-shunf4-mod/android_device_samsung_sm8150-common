@@ -23,11 +23,31 @@ PRODUCT_ENFORCE_RRO_TARGETS += *
 
 # Audio 
 PRODUCT_PACKAGES += \
-    audio.a2dp.default
+    android.hardware.audio@6.0-impl \
+    android.hardware.audio.effect@6.0-impl \
+    android.hardware.audio.service \
+    android.hardware.bluetooth.audio-impl \
+    audio.bluetooth.default \
+    audio.primary.msmnile
+
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
+    Aperture
+
+# Display
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.mapper@3.0-impl-qti-display \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
+    vendor.qti.hardware.display.mapper@1.1.vendor \
+    vendor.qti.hardware.display.mapper@2.0.vendor \
+    vendor.qti.hardware.display.mapper@3.0.vendor \
+    vendor.qti.hardware.display.mapper@4.0.vendor \
+    android.hardware.graphics.composer@2.4-service \
+    hwcomposer.msmnile
+
 
 # FM Radio (Qualcomm)
 # PRODUCT_PACKAGES += \
@@ -36,6 +56,11 @@ PRODUCT_PACKAGES += \
     # qcom.fmradio
 
 # PRODUCT_BOOT_JARS += qcom.fmradio
+
+# Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1-service.samsung-beyond0qlte
+
 
 # Prebuilt (Richwave FM Radio)
 PRODUCT_COPY_FILES += \
@@ -50,9 +75,48 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/hotword-hiddenapi-package-allowlist.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/hotword-hiddenapi-package-allowlist.xml \
     $(COMMON_PATH)/configs/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
 
-# Init
+# Init files and fstab
 PRODUCT_PACKAGES += \
-    init.qcom.rc
+    init.qcom.rc \
+    init.qcom.factory.rc \
+    init.qcom.usb.rc \
+    init.qti.ufs.rc \
+    init.samsung.bsp.rc \
+    init.samsung.display.rc \
+    init.samsung.rc \
+    init.target.rc \
+    init.fingerprint.rc \
+    init.nfc.samsung.rc \
+    init.qti.qcv.rc \
+    init.ramplus.rc \
+    init.spdaemon.rc \
+    init.time_daemon.rc \
+    init.vendor.rilcarrier.rc \
+    init.vendor.rilchip.rc \
+    init.vendor.rilcommon.rc \
+    init.vendor.sensors.rc \
+    init.vendor.sysfw.rc \
+    vaultkeeper_common.rc \
+    fstab.ramplus
+
+# Init scripts from vendor
+PRODUCT_PACKAGES += \
+    init.class_main.sh \
+    init.mdm.sh \
+    init.qcom.class_core.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sdio.sh \
+    init.qcom.sh \
+    init.qcom.usb.sh \
+    init.qti.chg_policy.sh \
+    init.qti.dcvs.sh \
+    init.qti.keymaster.sh \
+    init.qti.qcv.sh
+
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/rootdir/vendor/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom \
+    $(COMMON_PATH)/rootdir/vendor/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom
 
 # OTA Updater
 AB_OTA_UPDATER := false
@@ -66,11 +130,21 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras
 
 # Power
+
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/samsung/aidl/power-libperfmgr \
+    hardware/samsung
+
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.sm8150-libperfmgr
+    android.hardware.power-service.samsung-libperfmgr
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PLATFORM_VNDK_VERSION)/etc/powerhint.json
+
+# Properties
+TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
+TARGET_SYSTEM_EXT_PROP += $(COMMON_PATH)/system_ext.prop
+TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 
 # Recovery
 PRODUCT_PACKAGES += \
@@ -83,7 +157,8 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.1-service.sm8150-multihal
+    android.hardware.sensors-service.samsung-multihal \
+    libsensorndkbridge
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
