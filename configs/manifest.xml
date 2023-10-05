@@ -1,4 +1,14 @@
 <manifest version="2.0" type="device" target-level="4">
+    <hal format="aidl">
+        <name>android.system.keystore2</name>
+        <version>3</version>
+        <fqname>IKeystoreService/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.keymaster</name>
+        <transport>hwbinder</transport>
+        <fqname>@4.0::IKeymasterDevice/default</fqname>
+    </hal>
     <hal format="hidl">
         <name>android.hardware.atrace</name>
         <transport>hwbinder</transport>

@@ -118,6 +118,12 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/vendor/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom \
     $(COMMON_PATH)/rootdir/vendor/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom
 
+# Keymaster
+# PRODUCT_PACKAGES += \
+#     android.hardware.keymaster@4.0-service.samsung \
+#     android.hardware.keymaster@4.1.vendor \
+#     libkeymaster4_1support.vendor
+
 # OTA Updater
 AB_OTA_UPDATER := false
 
@@ -139,7 +145,7 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.samsung-libperfmgr
 
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PLATFORM_VNDK_VERSION)/etc/powerhint.json
+    $(COMMON_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # Properties
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop

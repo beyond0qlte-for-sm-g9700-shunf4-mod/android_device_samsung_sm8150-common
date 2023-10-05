@@ -1,3 +1,10 @@
 ro.bluetooth.a2dp_offload.supported=false
 persist.bluetooth.a2dp_offload.disabled=true
 vendor.audio.feature.a2dp_offload.enable=false
+
+# Gatekeeper
+ro.hardware.gatekeeper=mdfpp
+
+# Keystore
+ro.hardware.keystore=mdfpp
+ro.security.keystore.keytype=sakv2,gak,sgak

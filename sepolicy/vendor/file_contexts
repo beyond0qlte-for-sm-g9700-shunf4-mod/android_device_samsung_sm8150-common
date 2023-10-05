@@ -226,3 +226,12 @@
 /dev/socket/tz                                  u:object_r:tz_socket:s0
 /dev/socket/taa                                 u:object_r:tz_socket:s0
 /dev/socket/vaultkeeper                         u:object_r:vaultkeeper_socket:s0
+
+/sys/devices/platform/soc/soc:battery/power_supply    u:object_r:sysfs_battery:s0
+/sys/devices/platform/soc/soc:battery/power_supply(/.*)   u:object_r:sysfs_battery:s0
+
+/sys/devices/platform/soc/890000.i2c/i2c-[0-9]/[0-9]-[0-9]+/max77705-charger/power_supply    u:object_r:sysfs_battery:s0
+/sys/devices/platform/soc/890000.i2c/i2c-[0-9]/[0-9]-[0-9]+/max77705-charger/power_supply(/.*)   u:object_r:sysfs_battery:s0
+
+/config/usb_gadget      u:object_r:usb_configfs:s0
+/config/usb_gadget(/.*)      u:object_r:usb_configfs:s0

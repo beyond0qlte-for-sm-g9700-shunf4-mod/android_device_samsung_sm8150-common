@@ -1,0 +1,2 @@
+r_dir_file(charger, sysfs_battery);
+allow charger sysfs_battery:file w_file_perms;

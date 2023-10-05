@@ -36,6 +36,8 @@ allow init {
     sec_poc_file
     system_sec_efs_file
     vendor_configs_file
+    spu_file
+    dqmdbgblk_file
 }:dir mounton;
 
 allow init audit_log:dir rw_dir_perms;
@@ -64,6 +66,7 @@ allow init debugfs:file write;
 allow init debugfs_tracing:dir rw_dir_perms;
 allow init debugfs_tracing:file rw_file_perms;
 allow init debugfs_tracing_debug:dir r_dir_perms;
+allow init debugfs_tracing_debug:dir mounton;
 allow init debugfs_tracing_debug:file rw_file_perms;
 allow init debugfs_type:{ dir file lnk_file } relabelfrom;
 allow init debugfs_wifi_tracing:dir create_dir_perms;

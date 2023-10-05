@@ -394,16 +394,16 @@ vendor/firmware/a630_sqe.fw
 vendor/firmware/a640_gmu.bin
 
 ## Keymaster
-# vendor/lib/libkeymasterdeviceutils.so
-# vendor/lib/libkeymasterutils.so
-# vendor/lib/libqtikeymaster4.so
-# vendor/lib/libspcom.so
-# vendor/lib64/libkeymaster_helper.so
-# vendor/lib64/libkeymasterdeviceutils.so
-# vendor/lib64/libkeymasterutils.so
-# vendor/lib64/libqtikeymaster4.so
+vendor/lib/libkeymasterdeviceutils.so
+vendor/lib/libkeymasterutils.so
+vendor/lib/libqtikeymaster4.so
+vendor/lib/libspcom.so
+vendor/lib64/libkeymaster_helper.so
+vendor/lib64/libkeymasterdeviceutils.so
+vendor/lib64/libkeymasterutils.so
+vendor/lib64/libqtikeymaster4.so
 -vendor/lib64/libskeymaster4device.so
-# vendor/lib64/libspcom.so
+vendor/lib64/libspcom.so
 
 ## aptX - crosshatch-user 11 RQ1A.201205.003 6906706
 # system_ext/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc

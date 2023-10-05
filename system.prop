@@ -7,3 +7,5 @@ ro.vendor.qti.va_aosp.support=1
 # FM
 vendor.bluetooth.soc=cherokee
 
+# ro.boot.selinux=permissive
+# androidboot.selinux=permissive

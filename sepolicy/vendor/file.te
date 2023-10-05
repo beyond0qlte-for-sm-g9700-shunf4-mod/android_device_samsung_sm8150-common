@@ -24,6 +24,8 @@ type zram_data_file, file_type, data_file_type, core_data_file_type;
 # configfs
 type usb_configfs, fs_type;
 
+allow usb_configfs configfs:filesystem associate;
+
 # debugfs
 type vendor_debugfs_ipc, fs_type, debugfs_type;
 type vendor_debugfs_wlan, fs_type, debugfs_type;

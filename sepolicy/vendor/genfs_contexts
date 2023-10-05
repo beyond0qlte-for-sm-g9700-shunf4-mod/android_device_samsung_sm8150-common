@@ -1,5 +1,6 @@
 # configfs
 genfscon configfs /usb_gadget                                                                                  u:object_r:usb_configfs:s0
+genfscon configfs /usb_gadget(/.*)                                                                                  u:object_r:usb_configfs:s0
 
 # debugfs
 genfscon debugfs /msm_ipc_router                                                                               u:object_r:vendor_debugfs_ipc:s0
@@ -49,6 +50,8 @@ genfscon sysfs /class/power_supply/battery/wc_tx_en                             
 genfscon sysfs /class/power_supply/battery/wc_tx_stop_capacity                                                 u:object_r:sysfs_ss_writable:s0
 genfscon sysfs /class/rtc/rtc0(/.*)?                                                                           u:object_r:sysfs_rtc:s0
 genfscon sysfs /class/sec/hall_ic/hall_logical_detect                                                          u:object_r:sysfs_ski_hal_readable:s0
+genfscon sysfs /class/sec/hall_ic/hall_detect                                                          u:object_r:sysfs_ski_hal_readable:s0
+genfscon sysfs /class/sec/hall_ic/certify_hall_detect                                                          u:object_r:sysfs_ski_hal_readable:s0
 genfscon sysfs /class/sec/led/led_blink                                                                        u:object_r:sysfs_ski_led_writable:s0
 genfscon sysfs /class/sec/pcie-wifi/pcie_l1ss_ctrl                                                             u:object_r:sysfs_ss_writable:s0
 genfscon sysfs /class/sec/sec_hw_param(/.*)?                                                                   u:object_r:sysfs_ski_hwparam_readable:s0
@@ -106,6 +109,8 @@ genfscon sysfs /devices/platform/soc/5e00000.qcom,mdss_mdp/backlight/panel0-back
 genfscon sysfs /devices/platform/soc/888000.spi/spi_master/spi0/spi0.0/input/input3                            u:object_r:sysfs_ski_touch_writable:s0
 genfscon sysfs /devices/platform/soc/88c000.i2c/i2c-45/45-0049/input/input[0-9]/enabled                        u:object_r:sysfs_ski_touch_writable:s0
 genfscon sysfs /devices/platform/soc/890000.i2c/i2c-0/0-0066/max77705-usbc/typec/port0/power_role              u:object_r:sysfs_ss_writable:s0
+genfscon sysfs /devices/platform/soc/890000.i2c/i2c-[0-9]/[0-9]-[0-9]+/max77705-charger/power_supply           u:object_r:sysfs_battery:s0
+genfscon sysfs /devices/platform/soc/890000.i2c/i2c-[0-9]/[0-9]-[0-9]+/max77705-charger/power_supply(/.*)      u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/soc/980000.i2c/i2c-[0-9]/[0-9]-[0-9]+/max77705-charger/power_supply           u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/soc/980000.i2c/i2c-[0-9]/[0-9]-[0-9]+/max77705-charger/power_supply/otg       u:object_r:sysfs_ss_writable:s0
 genfscon sysfs /devices/platform/soc/980000.i2c/i2c-[0-9]/[0-9]-[0-9]+/max77705-fuelgauge/power_supply         u:object_r:sysfs_battery:s0
@@ -121,6 +126,8 @@ genfscon sysfs /devices/platform/soc/a9c000.spi/spi_master/spi1/spi1.0/input/inp
 genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/perf_mode                                           u:object_r:vendor_sysfs_graphics:s0
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm6150@0:qcom,usb-pdphy@1700/usbpd/usbpd0/port0/power_role    u:object_r:sysfs_ss_writable:s0
 genfscon sysfs /devices/platform/soc/c80000.i2c/i2c-12/12-0048/input/input[0-9]/enabled                        u:object_r:sysfs_ski_touch_writable:s0
+genfscon sysfs /devices/platform/soc/soc:battery/power_supply                                            u:object_r:sysfs_battery:s0
+genfscon sysfs /devices/platform/soc/soc:battery/power_supply(/.*)                                            u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/soc/soc:battery/power_supply(/.*)?                                            u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/soc/soc:i2c@22/i2c-[0-9]/[0-9]-[0-9a-z]+/power_supply                         u:object_r:sysfs_battery:s0
 genfscon sysfs /devices/platform/soc/soc:i2c@28/i2c-6/6-0033/typec/port0/power_role                            u:object_r:sysfs_ss_writable:s0
@@ -149,6 +156,8 @@ genfscon sysfs /devices/virtual/sec/hall_ic(/.*)?                               
 genfscon sysfs /devices/virtual/sec/hall_ic/flip_status                                                        u:object_r:sysfs_ski_hal_readable:s0
 genfscon sysfs /devices/virtual/sec/hall_ic/hall_logical_detect                                                u:object_r:sysfs_ski_hal_readable:s0
 genfscon sysfs /devices/virtual/sec/hall_ic/hall_wacom_detect                                                  u:object_r:sysfs_ski_hal_readable:s0
+genfscon sysfs /devices/virtual/sec/hall_ic/hall_detect                                                  u:object_r:sysfs_ski_hal_readable:s0
+genfscon sysfs /devices/virtual/sec/hall_ic/certify_hall_detect                                                  u:object_r:sysfs_ski_hal_readable:s0
 genfscon sysfs /devices/virtual/sec/hall_logical/hall_logical_detect                                           u:object_r:sysfs_ski_hal_readable:s0
 genfscon sysfs /devices/virtual/sec/pcie-wifi/pcie_l1ss_ctrl                                                   u:object_r:sysfs_ss_writable:s0
 genfscon sysfs /devices/virtual/sec/rtc/rtc_status                                                             u:object_r:sysfs_ski_power_readable:s0
