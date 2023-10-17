@@ -1,8 +1,8 @@
 # Proprietary files - from Samsung package version G9700ZCU7HVJ2, unless pinned
 
 ## Ant
--lib/libantradio.so
--lib64/libantradio.so
+# -lib/libantradio.so
+# -lib64/libantradio.so
 system_ext/lib/com.qualcomm.qti.ant@1.0.so
 system_ext/lib64/com.qualcomm.qti.ant@1.0.so
 vendor/lib/com.qualcomm.qti.ant@1.0.so
@@ -12,7 +12,7 @@ vendor/lib64/com.qualcomm.qti.ant@1.0.so
 vendor/etc/dolby/dax-default.xml
 vendor/etc/floating_feature.xml
 vendor/etc/mixer_paths_pahu.xml
--vendor/lib/libaudioproxy.so
+# -vendor/lib/libaudioproxy.so
 -vendor/lib/librecordalive.so
 -vendor/lib/lib_SamsungRec_07010.so
 -vendor/lib/hw/audio.primary.msmnile.so
@@ -302,16 +302,57 @@ vendor/lib64/vendor.samsung.hardware.camera.device@5.0.so
 vendor/lib64/vendor.samsung.hardware.camera.provider@4.0-legacy.so
 vendor/lib64/vendor.samsung.hardware.camera.provider@4.0.so
 
+## CDSP
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so
+vendor/lib/vendor.qti.hardware.dsp@1.0.so
+
 ## Charger
 vendor/bin/hvdcp_opti
 vendor/etc/charger_fstab.qti
 
-## Codecs
-vendor/etc/media_codecs_performance.xml
+# Configstore
+vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
+vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
+vendor/lib/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
+vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 
 ## Display
+# vendor/lib/vendor.qti.hardware.display.composer@2.0.so
+# vendor/lib/vendor.qti.hardware.display.composer@1.0.so
+# vendor/lib64/vendor.qti.hardware.display.composer@2.0.so
+# vendor/lib64/vendor.qti.hardware.display.composer@1.0.so
 # vendor/lib/hw/hwcomposer.msmnile.so
 # vendor/lib64/hw/hwcomposer.msmnile.so
+# vendor/bin/hw/android.hardware.graphics.composer@2.4-service
+# vendor/etc/vintf/manifest/android.hardware.graphics.composer-qti-display.xml
+
+## DRM
+vendor/bin/hw/android.hardware.drm@1.3-service.widevine
+vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc
+-vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
+vendor/lib/libcpion.so
+vendor/lib/libhdcpsrm.so
+vendor/lib/libminksocket.so
+vendor/lib/liboemcrypto.so
+vendor/lib/libtrustedapploader.so
+vendor/lib/libwvhidl.so
+vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib64/libcpion.so
+vendor/lib64/libhdcpsrm.so
+vendor/lib64/libminksocket.so
+vendor/lib64/liboemcrypto.so
+vendor/lib64/libtrustedapploader.so
+vendor/lib64/libsdedrm.so
+vendor/lib/libsdedrm.so
+
+
+## Feature
+vendor/lib/libfloatingfeature.so
+vendor/lib/libsecnativefeature.so
+vendor/lib/libsemnativecarrierfeature.so
+vendor/lib64/libfloatingfeature.so
+vendor/lib64/libsecnativefeature.so
+vendor/lib64/libsemnativecarrierfeature.so
 
 ## Fingerprint
 vendor/lib/libbauthserver.so
@@ -333,18 +374,20 @@ vendor/firmware/cs35l40-rcv-dsp1-spk-prot-calib.bin
 # lib64/libfm-hci.so
 # lib/fm_helium.so
 # lib/libfm-hci.so
--lib64/vendor.qti.hardware.fm@1.0.so
--lib/vendor.qti.hardware.fm@1.0.so
+-vendor/lib64/vendor.qti.hardware.fm@1.0.so
+-vendor/lib/vendor.qti.hardware.fm@1.0.so
 
 lib64/libfmradio_jni.so
 lib/libfmradio_jni.so
 lib64/libsecnativefeature.so
 lib/libsecnativefeature.so
-lib64/libfloatingfeature.so
-lib/libfloatingfeature.so
+# lib64/libfloatingfeature.so
+# lib/libfloatingfeature.so
 
 ## Gatekeeper
 
+# vendor/bin/hw/android.hardware.gatekeeper@1.0-service
+# vendor/etc/init/android.hardware.gatekeeper@1.0-service.rc
 vendor/lib/android.hardware.gatekeeper@1.0-impl.so
 vendor/lib64/android.hardware.gatekeeper@1.0-impl.so
 vendor/lib64/hw/gatekeeper.mdfpp.so
@@ -380,10 +423,96 @@ vendor/lib64/vendor.qti.gnss@2.1.so
 vendor/lib64/vendor.qti.gnss@3.0.so
 vendor/lib64/vendor.qti.gnss@4.0.so
 vendor/lib64/vendor.samsung.hardware.gnss@2.0.so
+vendor/lib/libloc_core.so
+vendor/lib64/libloc_core.so
+vendor/lib/liblocation_api.so
+vendor/lib64/liblocation_api.so
 
 
 
-
+## Graphics
+vendor/bin/hw/vendor.display.color@1.0-service
+vendor/bin/ppd
+vendor/bin/qdcmss
+vendor/etc/init/qdcmss.rc
+vendor/etc/init/vendor.display.color@1.0-service.rc
+vendor/lib/libC2D2.so
+vendor/lib/libc2d30_bltlib.so
+vendor/lib/libCB.so
+vendor/lib/libdisp-aba.so
+vendor/lib/libdisplayqos.so
+vendor/lib/libdpps.so
+vendor/lib/libgpudataproducer.so
+vendor/lib/libgsl.so
+vendor/lib/libhdr_tm.so
+vendor/lib/libhdrdynamicootf.so
+vendor/lib/libllvm-glnext.so
+vendor/lib/libllvm-qcom.so
+vendor/lib/libOpenCL.so
+vendor/lib/libqseed3.so
+vendor/lib/libsdm-color.so
+vendor/lib/libsdm-colormgr-algo.so
+vendor/lib/libsdm-diag.so
+vendor/lib/libsdm-disp-vndapis.so
+vendor/lib/libsdmextension.so
+vendor/lib/libtinyxml2_1.so
+vendor/lib/libVkLayer_q3dtools.so
+vendor/lib/vendor.display.color@1.0.so
+vendor/lib/vendor.display.color@1.1.so
+vendor/lib/vendor.display.color@1.2.so
+vendor/lib/vendor.display.color@1.3.so
+vendor/lib/vendor.display.color@1.4.so
+vendor/lib/vendor.display.color@1.5.so
+vendor/lib/vendor.display.postproc@1.0.so
+vendor/lib64/libC2D2.so
+vendor/lib64/libc2d30_bltlib.so
+vendor/lib64/libCB.so
+vendor/lib64/libdisp-aba.so
+vendor/lib64/libdisplayqos.so
+vendor/lib64/libdpps.so
+vendor/lib64/libgpudataproducer.so
+vendor/lib64/libgsl.so
+vendor/lib64/libhdr_tm.so
+vendor/lib64/libhdrdynamic.so
+vendor/lib64/libhdrdynamicootf.so
+vendor/lib64/libllvm-glnext.so
+vendor/lib64/libllvm-qcom.so
+vendor/lib64/libOpenCL.so
+vendor/lib64/libqseed3.so
+vendor/lib64/libsdm-color.so
+vendor/lib64/libsdm-colormgr-algo.so
+vendor/lib64/libsdm-diag.so
+vendor/lib64/libsdm-disp-vndapis.so
+vendor/lib64/libsdmextension.so
+vendor/lib64/libtinyxml2_1.so
+vendor/lib64/libVkLayer_q3dtools.so
+vendor/lib64/vendor.display.color@1.0.so
+vendor/lib64/vendor.display.color@1.1.so
+vendor/lib64/vendor.display.color@1.2.so
+vendor/lib64/vendor.display.color@1.3.so
+vendor/lib64/vendor.display.color@1.4.so
+vendor/lib64/vendor.display.color@1.5.so
+vendor/lib64/vendor.display.postproc@1.0.so
+# Vulkan
+vendor/lib/hw/vulkan.adreno.so
+vendor/lib64/hw/vulkan.adreno.so
+# Adreno
+vendor/lib/egl/eglSubDriverAndroid.so
+vendor/lib/egl/libEGL_adreno.so
+vendor/lib/egl/libGLESv1_CM_adreno.so
+vendor/lib/egl/libGLESv2_adreno.so
+vendor/lib/egl/libq3dtools_adreno.so
+vendor/lib/egl/libq3dtools_esx.so
+vendor/lib/libadreno_utils.so
+vendor/lib64/egl/eglSubDriverAndroid.so
+vendor/lib64/egl/libEGL_adreno.so
+vendor/lib64/egl/libGLESv1_CM_adreno.so
+vendor/lib64/egl/libGLESv2_adreno.so
+vendor/lib64/egl/libq3dtools_adreno.so
+vendor/lib64/egl/libq3dtools_esx.so
+vendor/lib64/libadreno_utils.so
+vendor/etc/qdcm_calib_data_ss_dsi_panel_S6E3FA7_AMB575WD01_FHD.xml
+vendor/etc/qdcm_calib_data_ss_dsi_panel_S6E3FA7_AMB575WD01_FHD_1185Mbps.xml
 
 
 ## Graphics Firmware
@@ -393,17 +522,30 @@ vendor/firmware/a630_gmu.bin
 vendor/firmware/a630_sqe.fw
 vendor/firmware/a640_gmu.bin
 
+## Health
+vendor/bin/hw/android.hardware.health@2.1-service-samsung
+vendor/etc/init/android.hardware.health@2.1-service-samsung.rc
+vendor/etc/vintf/manifest/android.hardware.health@2.1-samsung.xml
+vendor/lib/hw/android.hardware.health@2.0-impl-2.1-samsung.so
+vendor/lib/vendor.samsung.hardware.health@2.0.so
+vendor/lib64/hw/android.hardware.health@2.0-impl-2.1-samsung.so
+vendor/lib64/vendor.samsung.hardware.health@2.0.so
+
 ## Keymaster
+# vendor/bin/hw/android.hardware.keymaster@4.0-service
+# vendor/bin/hw/android.hardware.keymaster@4.0-strongbox-service-qti
+# vendor/etc/init/android.hardware.keymaster@4.0-service.rc
+# vendor/etc/init/android.hardware.keymaster@4.0-strongbox-service-qti.rc
 vendor/lib/libkeymasterdeviceutils.so
 vendor/lib/libkeymasterutils.so
-vendor/lib/libqtikeymaster4.so
-vendor/lib/libspcom.so
-vendor/lib64/libkeymaster_helper.so
 vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterutils.so
+vendor/lib64/libkeymaster_helper.so
 vendor/lib64/libqtikeymaster4.so
--vendor/lib64/libskeymaster4device.so
+vendor/lib64/libskeymaster4device.so
+vendor/lib/libspcom.so
 vendor/lib64/libspcom.so
+# vendor/etc/permissions/android.hardware.strongbox_keystore.xml
 
 ## aptX - crosshatch-user 11 RQ1A.201205.003 6906706
 # system_ext/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
@@ -414,9 +556,28 @@ etc/nfcee_access.xml
 etc/nfc_key
 vendor/firmware/nfc/libpn553_fw.so
 
+## OMX
+vendor/lib64/libSecC2ComponentStore.so
+vendor/etc/vintf/manifest/sec_c2_manifest_default.xml
+vendor/etc/media_codecs.xml
+vendor/etc/media_codecs_c2_sec.xml
+vendor/etc/media_codecs_c2_sec_ape.xml
+vendor/etc/media_codecs_c2_sec_qcp.xml
+vendor/etc/media_codecs_c2_sec_wmx.xml
+vendor/etc/media_codecs_google_audio.xml
+vendor/etc/media_codecs_google_c2.xml
+vendor/etc/media_codecs_google_c2_audio.xml
+vendor/etc/media_codecs_google_c2_video.xml
+vendor/etc/media_codecs_google_telephony.xml
+vendor/etc/media_codecs_google_video.xml
+vendor/etc/media_codecs_google_video_le.xml
+vendor/etc/media_codecs_performance.xml
+vendor/etc/media_profiles_V1_0.xml
+vendor/etc/media_profiles_vendor.xml
+
 ## Radio
-system_ext/lib/vendor.qti.imsrtpservice@3.0.so
-system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
+# system_ext/lib/vendor.qti.imsrtpservice@3.0.so
+# system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 
 ## RIL
 vendor/etc/locale/plmn_delta_eng.bin
@@ -431,6 +592,8 @@ vendor/lib64/libril_sem.so
 vendor/lib64/libsec_semRil.so
 vendor/lib64/libsec-ril.so
 vendor/lib64/libsecril-client.so
+vendor/lib/libqrtr.so
+vendor/lib64/libqrtr.so
 
 vendor/lib64/vendor.samsung.hardware.radio.bridge@2.0.so
 vendor/lib64/vendor.samsung.hardware.radio.bridge@2.1.so
@@ -439,7 +602,53 @@ vendor/lib64/vendor.samsung.hardware.radio@2.0.so
 vendor/lib64/vendor.samsung.hardware.radio@2.1.so
 vendor/lib64/vendor.samsung.hardware.radio@2.2.so
 
-
+# QMI
+vendor/bin/irsc_util
+vendor/bin/pd-mapper
+vendor/bin/qrtr-ns
+vendor/bin/ssr_setup
+vendor/etc/sec_config
+vendor/lib/libdiag.so
+vendor/lib/libdiagjni.so
+vendor/lib/libdsutils.so
+vendor/lib/libmdmdetect.so
+vendor/lib/libpdmapper.so
+vendor/lib/libpdnotifier.so
+vendor/lib/libqcci_legacy.so
+vendor/lib/libqdi.so
+vendor/lib/libqdp.so
+vendor/lib/libqmi.so
+vendor/lib/libqmi_cci.so
+vendor/lib/libqmi_client_helper.so
+vendor/lib/libqmi_client_qmux.so
+vendor/lib/libqmi_common_so.so
+vendor/lib/libqmi_csi.so
+vendor/lib/libqmi_csvt_srvc.so
+vendor/lib/libqmi_encdec.so
+vendor/lib/libqmi_legacy.so
+vendor/lib/libqmiservices.so
+vendor/lib/libqsocket.so
+vendor/lib64/libdiag.so
+vendor/lib64/libdiagjni.so
+vendor/lib64/libdsutils.so
+vendor/lib64/libmdmdetect.so
+vendor/lib64/libmdmimgload.so
+vendor/lib64/libpdmapper.so
+vendor/lib64/libpdnotifier.so
+vendor/lib64/libqcci_legacy.so
+vendor/lib64/libqdi.so
+vendor/lib64/libqdp.so
+vendor/lib64/libqmi.so
+vendor/lib64/libqmi_cci.so
+vendor/lib64/libqmi_client_helper.so
+vendor/lib64/libqmi_client_qmux.so
+vendor/lib64/libqmi_common_so.so
+vendor/lib64/libqmi_csi.so
+vendor/lib64/libqmi_csvt_srvc.so
+vendor/lib64/libqmi_encdec.so
+vendor/lib64/libqmi_legacy.so
+vendor/lib64/libqmiservices.so
+vendor/lib64/libqsocket.so
 
 ## QTI
 system_ext/etc/permissions/com.qualcomm.qti.imscmservice.xml

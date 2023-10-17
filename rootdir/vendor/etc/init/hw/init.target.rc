@@ -209,6 +209,8 @@ on property:vendor.usb.controller=*
 #pd-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
     class core
+    critical
+    stdio_to_kmsg
     user system
     group system
 

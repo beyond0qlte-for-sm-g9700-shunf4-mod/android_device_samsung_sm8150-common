@@ -232,6 +232,8 @@ on boot
 
 service factory_ssc /vendor/bin/factory.ssc
     class core
+    critical
+    stdio_to_kmsg
     user system
     group system radio inet diag net_admin net_raw sdcard_rw sdcard_r media_rw
 

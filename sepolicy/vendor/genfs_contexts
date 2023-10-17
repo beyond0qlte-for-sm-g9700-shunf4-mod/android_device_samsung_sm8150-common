@@ -288,8 +288,8 @@ genfscon sysfs /devices/platform/soc/980000.spi/spi_master/spi1/spi1.0/wakeup   
 genfscon sysfs /devices/platform/soc/980000.spi/spi_master/spi1/spi1.1/wakeup                                                                               u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/984000.i2c/i2c-34/34-0049/sm5714-fuelgauge/power_supply/sm5714-fuelgauge/wakeup                                        u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/990000.spi/spi_master/spi1/spi1.0/wakeup                                                                               u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/soc/a600000.ssusb/wakeup                                                                                                   u:object_r:sysfs_wakeup:s0
-genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-10/10-0038/power_supply/s2asl01-switching-main/wakeup                                                   u:object_r:sysfs_wakeup:s0
+# genfscon sysfs /devices/platform/soc/a600000.ssusb/wakeup                                                                                                   u:object_r:sysfs_wakeup:s0
+# genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-10/10-0038/power_supply/s2asl01-switching-main/wakeup                                                   u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-10/10-0039/power_supply/s2asl01-switching-sub/wakeup                                                    u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-8/8-0038/power_supply/s2asl01-switching-main/wakeup                                                     u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-8/8-0039/power_supply/s2asl01-switching-sub/wakeup                                                      u:object_r:sysfs_wakeup:s0

@@ -613,6 +613,8 @@ on property:vold.decrypt=trigger_restart_framework
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core
+    critical
+    stdio_to_kmsg
     user vendor_qrtr
     group vendor_qrtr
     capabilities NET_BIND_SERVICE

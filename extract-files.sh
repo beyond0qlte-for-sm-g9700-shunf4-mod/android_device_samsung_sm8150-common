@@ -66,6 +66,13 @@ function blob_fixup() {
     etc/nfcee_access.xml)
         sed -i "s/xliff=\"urn:oasis:names:tc:xliff:document:1.2\"/android=\"http:\/\/schemas.android.com\/apk\/res\/android\"/" "${2}"
         ;;
+    vendor/lib64/libsec-ril.so)
+        sed -i 's/ril.dds.call.slotid/vendor.calls.slotid/g' "${2}"
+        ;;
+    vendor/lib64/hw/android.hardware.health@2.0-impl-2.1-samsung.so)
+        # Replace libutils with vndk30 libutils
+        "${PATCHELF}" --replace-needed libutils.so libutils-v30.so "${2}"
+        ;;
     esac
 }
 

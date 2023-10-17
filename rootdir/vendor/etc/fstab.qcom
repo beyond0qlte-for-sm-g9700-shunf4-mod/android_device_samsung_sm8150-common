@@ -37,7 +37,7 @@
 #<src>                                                 <mnt_point>            <type>  <mnt_flags and options>                            <fs_mgr_flags>
 #/dev/block/bootdevice/by-name/system                    /                      ext4    ro,barrier=1,discard                                 wait,avb
 #/dev/block/bootdevice/by-name/metadata                  /metadata              ext4    noatime,nosuid,nodev,discard                         wait,formattable
-/dev/block/bootdevice/by-name/userdata	/data	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic,inlinecrypt	latemount,wait,check,fileencryption=ice,quota,reservedsize=128M
+/dev/block/bootdevice/by-name/userdata	/data	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	latemount,wait,check,quota,reservedsize=128M
 #/dev/block/bootdevice/by-name/bluetooth                 /vendor/bt_firmware    vfat    ro,shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0 wait
 
 # Need to have this entry in here even though the mount point itself is no longer needed.
@@ -56,10 +56,11 @@
 /dev/block/bootdevice/by-name/spu	/spu	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	nofail,check
 
 # Samsung ODE
-/dev/block/bootdevice/by-name/keydata	/keydata	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic,inlinecrypt	wait,check,fileencryption=ice,nofail
-/dev/block/bootdevice/by-name/keyrefuge	/keyrefuge	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic,inlinecrypt	wait,check,fileencryption=ice,nofail
+/dev/block/bootdevice/by-name/keydata	/keydata	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check,nofail
+/dev/block/bootdevice/by-name/keyrefuge	/keyrefuge	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check,nofail
 
 # VOLD:samsung/common/fstab.samsung
 #/devices/platform/soc/1da4000.ufshc_card/host*           /storage/sdcard1       vfat    nosuid,nodev                                         wait,voldmanaged=sdcard1:auto,encryptable=footer
+#/devices/platform/soc/1da4000.ufshc_card/host*           /storage/sdcard1       vfat    nosuid,nodev                                         wait,voldmanaged=sdcard1:auto
 /devices/platform/soc/8804000.sdhci/mmc_host*            auto    vfat    defaults    voldmanaged=sdcard:auto
 /devices/platform/soc/*.ssusb/*.dwc3/xhci-hcd.*.auto*    auto    auto    defaults    voldmanaged=usb:auto

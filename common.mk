@@ -35,19 +35,63 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Aperture
+    Aperture \
+    android.hardware.camera.common@1.0 \
+    android.hardware.camera.common@1.0.vendor
+
+# ConfigStore
+PRODUCT_PACKAGES += \
+    disable_configstore \
+    libplatformconfig \
+    vendor.qti.hardware.capabilityconfigstore@1.0
+
+# Consumer IR
+PRODUCT_PACKAGES += \
+    android.hardware.ir@1.0-impl \
+    android.hardware.ir@1.0-service.samsung
 
 # Display
 PRODUCT_PACKAGES += \
+    android.frameworks.displayservice@1.0 \
+    android.frameworks.displayservice@1.0.vendor \
+    android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
+    vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.mapper@1.1.vendor \
     vendor.qti.hardware.display.mapper@2.0.vendor \
     vendor.qti.hardware.display.mapper@3.0.vendor \
     vendor.qti.hardware.display.mapper@4.0.vendor \
-    android.hardware.graphics.composer@2.4-service \
-    hwcomposer.msmnile
+    gralloc.msmnile \
+    memtrack.msmnile \
+    libdisplayconfig.qti \
+    libgralloc.qti \
+    libqdMetaData \
+    libsdmcore \
+    libsdmutils \
+    libtinyxml \
+    libtinyxml2 \
+    libvulkan \
+    libstagefright_enc_common \
+    vendor.display.config@2.0 \
+    vendor.display.config@2.0.vendor
 
+# PRODUCT_PACKAGES += android.hardware.graphics.composer@2.1-service
+# PRODUCT_PACKAGES += android.hardware.graphics.composer@2.1-impl
+PRODUCT_PACKAGES += android.hardware.graphics.composer@2.4-service
+PRODUCT_PACKAGES += hwcomposer.msmnile
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0 \
+    android.hardware.drm@1.1 \
+    android.hardware.drm@1.2 \
+    android.hardware.drm@1.3 \
+    android.hardware.drm@1.4.vendor \
+    android.hardware.drm-service.clearkey \
+    libdrmclearkeyplugin
 
 # FM Radio (Qualcomm)
 # PRODUCT_PACKAGES += \
@@ -61,6 +105,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.samsung-beyond0qlte
 
+# GNSS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss.measurement_corrections@1.1.vendor \
+    android.hardware.gnss.visibility_control@1.0.vendor \
+    android.hardware.gnss@1.1.vendor \
+    android.hardware.gnss@2.1.vendor
+
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.1.vendor \
+    vendor.lineage.health-service.default
 
 # Prebuilt (Richwave FM Radio)
 PRODUCT_COPY_FILES += \
@@ -96,6 +151,7 @@ PRODUCT_PACKAGES += \
     init.vendor.rilcommon.rc \
     init.vendor.sensors.rc \
     init.vendor.sysfw.rc \
+    ueventd.vendor.rc \
     vaultkeeper_common.rc \
     fstab.ramplus
 
@@ -124,8 +180,31 @@ PRODUCT_COPY_FILES += \
 #     android.hardware.keymaster@4.1.vendor \
 #     libkeymaster4_1support.vendor
 
-# OTA Updater
-AB_OTA_UPDATER := false
+PRODUCT_PACKAGES += \
+    android.hardware.wifi.hostapd@1.0.vendor \
+    android.hardware.wifi.hostapd@1.1.vendor \
+    android.hardware.wifi.hostapd@1.2.vendor \
+    android.hardware.wifi.offload@1.0.vendor \
+    android.hardware.wifi.supplicant@1.0.vendor \
+    android.hardware.wifi.supplicant@1.1.vendor \
+    android.hardware.wifi.supplicant@1.2.vendor \
+    android.hardware.wifi.supplicant@1.3.vendor \
+    android.hardware.wifi@1.0.vendor \
+    android.hardware.wifi@1.1.vendor \
+    android.hardware.wifi@1.2.vendor \
+    android.hardware.wifi@1.3.vendor \
+    android.hardware.wifi@1.4.vendor \
+    android.system.net.netd@1.0.vendor \
+    android.system.net.netd@1.1.vendor \
+    android.system.wifi.keystore@1.0.vendor \
+    android.hardware.atrace@1.0-service \
+    android.hardware.media.c2@1.0.vendor
+
+PRODUCT_PACKAGES += android.hardware.keymaster@4.0-service
+# PRODUCT_PACKAGES += android.hardware.keymaster@4.0-vendor
+PRODUCT_PACKAGES += android.hardware.keymaster@4.1-service
+PRODUCT_PACKAGES += android.hardware.gatekeeper@1.0-service.software
+# PRODUCT_PACKAGES += android.hardware.gatekeeper@1.0.vendor
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -135,6 +214,31 @@ PRODUCT_PACKAGES += \
     Tag \
     com.android.nfc_extras
 
+# OTA Updater
+AB_OTA_UPDATER := false
+
+# OMX
+PRODUCT_PACKAGES += \
+    android.hardware.media.c2@1.0.vendor \
+    libcodec2_hidl@1.0 \
+    libcodec2_hidl@1.1 \
+    libcodec2_hidl@1.2 \
+    libcodec2_hidl@1.0.vendor \
+    libcodec2_hidl@1.1.vendor \
+    libcodec2_hidl@1.2.vendor \
+    libcodec2_vndk.vendor \
+    libmm-omxcore \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxG711Enc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libstagefright_bufferpool@2.0.1.vendor \
+    libstagefrighthw
+
 # Power
 
 PRODUCT_SOONG_NAMESPACES += \
@@ -142,6 +246,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/samsung
 
 PRODUCT_PACKAGES += \
+    android.hardware.power@1.2 \
+    android.hardware.power@1.2.vendor \
     android.hardware.power-service.samsung-libperfmgr
 
 PRODUCT_COPY_FILES += \
@@ -151,6 +257,14 @@ PRODUCT_COPY_FILES += \
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 TARGET_SYSTEM_EXT_PROP += $(COMMON_PATH)/system_ext.prop
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
+
+# QMI
+PRODUCT_PACKAGES += \
+    libjson \
+    libqti_vndfwk_detect \
+    libqti_vndfwk_detect.vendor \
+    libvndfwk_detect_jni.qti \
+    libvndfwk_detect_jni.qti.vendor
 
 # Recovery
 PRODUCT_PACKAGES += \
@@ -164,6 +278,8 @@ PRODUCT_PACKAGES += \
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.samsung-multihal \
+    android.hardware.sensors@2.0 \
+    android.hardware.sensors@2.0-ScopedWakelock.vendor \
     libsensorndkbridge
 
 PRODUCT_COPY_FILES += \
@@ -184,6 +300,14 @@ PRODUCT_PACKAGES += \
 # Trust HAL
 PRODUCT_PACKAGES += \
     lineage.trust@1.0-service
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.3.vendor \
+    android.hardware.vibrator-service.samsung
+
+# VNDK
+PRODUCT_EXTRA_VNDK_VERSIONS := 28 29 30
 
 # WiFi
 PRODUCT_PACKAGES += \

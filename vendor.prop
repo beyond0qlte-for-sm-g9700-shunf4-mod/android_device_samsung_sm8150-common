@@ -6,5 +6,17 @@ vendor.audio.feature.a2dp_offload.enable=false
 ro.hardware.gatekeeper=mdfpp
 
 # Keystore
-ro.hardware.keystore=mdfpp
-ro.security.keystore.keytype=sakv2,gak,sgak
+# ro.hardware.keystore=mdfpp
+# ro.security.keystore.keytype=sakv2,gak,sgak
+
+init.svc_debug.no_fatal.sec-camera-provider-4-0=true
+init.svc_debug.no_fatal.gnss_service=true
+init.svc_debug.no_fatal.vendor.capabilityconfigstore=true
+init.svc_debug.no_fatal.factory_ssc=true
+init.svc_debug.no_fatal.vendor.hwcomposer-2-4=true
+init.svc_debug.no_fatal.vendor.qrtr-ns=true
+init.svc_debug.no_fatal.vendor.pd_mapper=true
+init.svc_debug.no_fatal.display-color-hal-1-0=true
+
+ro.hardware.egl=adreno
+ro.hardware.vulkan=adreno

@@ -1,0 +1,3 @@
+dontaudit flags_health_check property_type:file map;
+dontaudit flags_health_check property_type:file open;
+dontaudit flags_health_check property_type:file getattr;
