@@ -219,14 +219,14 @@
             <instance>wigigp2p</instance>
         </interface>
     </hal>
-    <!-- <hal format="hidl" optional="true">
+    <hal format="hidl" optional="true">
         <name>android.hardware.graphics.composer</name>
         <version>2.1-4</version>
         <interface>
             <name>IComposer</name>
             <instance>default</instance>
         </interface>
-    </hal> -->
+    </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.graphics.mapper</name>
         <!-- New, non-Go devices should use 4.0, tested in vts_treble_vintf_vendor_test -->

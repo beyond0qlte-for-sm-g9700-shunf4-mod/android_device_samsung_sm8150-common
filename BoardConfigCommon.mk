@@ -42,6 +42,7 @@ TARGET_USES_64_BIT_BINDER := true
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
+BOARD_SUPPORTS_SOUND_TRIGGER := true
 
 # Bootloader
 TARGET_SOC := msmnile
@@ -83,6 +84,12 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     vendor/lineage/config/device_framework_matrix.xml
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/configs/manifest.xml
 DEVICE_MATRIX_FILE += $(COMMON_PATH)/configs/compatibility_matrix.xml
+
+# Health
+TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/power_supply/battery/batt_slate_mode
+TARGET_HEALTH_CHARGING_CONTROL_CHARGING_ENABLED := 0
+TARGET_HEALTH_CHARGING_CONTROL_CHARGING_DISABLED := 1
+TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
 
 # Kernel: config
 TARGET_KERNEL_SOURCE := kernel/samsung/sm8150-common
@@ -144,7 +151,6 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 TARGET_COPY_OUT_SYSTEM_EXT := system/system_ext
 TARGET_COPY_OUT_VENDOR := vendor
-# to fix
 TARGET_COPY_OUT_PRODUCT := system/product
 
 TARGET_USERIMAGES_USE_EXT4 := true

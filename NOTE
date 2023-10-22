@@ -1,0 +1,190 @@
+gnss_service
+sec-camera-provider (vendor.samsung.hardware.camera.provider@4.0-impl.so)
+vendor.capabilityconfigstore
+factory_ssc
+vendor.hwcomposer-2-4 (/vendor/etc/init/android.hardware.graphics.composer@2.4-service.rc)
+qrtr-ns
+display-color-hal-1-0
+vendor.drm-widevine-hal-1-3
+
+add:
+    critical
+    stdio_to_kmsg
+
+init.svc_debug.no_fatal._=true
+
+
+modified :
+
+system/core/rootdir/init.zygote*.rc
+frameworks/native/services/surfaceflinger/surfaceflinger.rc
+/home/rivaaggg/work/lineage-dev/android/lineage/hardware/interfaces/graphics/composer/2.4/default/android.hardware.graphics.composer@2.4-service.rc
+
+/home/rivaaggg/work/lineage-dev/G9700ZCU7HVJ2_stock_root/vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc
+/home/rivaaggg/work/lineage-dev/G9700ZCU7HVJ2_stock_root/vendor/etc/init/vendor.samsung.hardware.camera.provider@4.0-service.rc
+/home/rivaaggg/work/lineage-dev/G9700ZCU7HVJ2_stock_root/vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
+/home/rivaaggg/work/lineage-dev/G9700ZCU7HVJ2_stock_root/vendor/etc/init/vendor.display.color@1.0-service.rc
+
+hardware/qcom-caf/sm8150/display/sdm/libs/core/drm/hw_info_drm.cpp
+
+rootdir/vendor/etc/init/hw/init.samsung.rc
+rootdir/vendor/etc/init/hw/init.qcom.rc
+rootdir/vendor/etc/init/hw/init.target.rc
+
+
+---
+
+
+vendor/etc/vintf/manifest/android.hardware.gnss@2.1-service-qti.xml
+vendor/bin/hw/android.hardware.gnss@2.1-service-qti
+vendor/lib/hw/android.hardware.gnss@2.1-impl-qti.so
+vendor/lib64/hw/android.hardware.gnss@2.1-impl-qti.so
+
+mount /vendor; toybox vi /vendor/etc/init/hw/init.qcom.rc
+
+service persistentLogging /system/bin/logcat -r 65536 -n 9 -v threadtime -f /cache/logs/log
+    user system
+    group system log
+    disabled
+
+on post-fs
+    exec -- /system/bin/rm -rf /cache/logs
+    mkdir /cache/logs 0775 system log
+    start persistentLogging
+
+ro.adb.secure=0
+ro.secure=0
+ro.debuggable=1
+persist.sys.usb.config=adb
+sys.usb.config=adb
+ro.default_usb_mode=0
+config.disable_consumerir=true
+
+adb shell 'mount /vendor; { echo -en "ro.adb.secure=0\nro.secure=0\nro.debuggable=1\npersist.sys.usb.config=adb\nsys.usb.config=adb\nro.default_usb_mode=0\n\n"; cat /vendor/build.prop; } > /cache/vendor.build.prop.tmp; cat /cache/vendor.build.prop.tmp > /vendor/build.prop; { cat /vendor/etc/init/hw/init.qcom.rc; echo -en "\n\nservice persistentLogging /system/bin/logcat -r 65536 -n 9 -v threadtime -f /cache/logs/log\n    user system\n    group system log\n    disabled\n\non post-fs\n    exec -- /system/bin/rm -rf /cache/logs\n    mkdir /cache/logs 0775 system log\n    start persistentLogging\n\n"; } > /cache/init.qcom.rc.tmp; cat /cache/init.qcom.rc.tmp > /vendor/etc/init/hw/init.qcom.rc;'
+
+
+#============= apexd ==============
+allow apexd unlabeled:blk_file getattr;
+allow apexd vendor_sysfs_mmc_host:file write;
+
+#============= cameraserver ==============
+allow cameraserver init:binder { call transfer };
+
+#============= crash_dump ==============
+allow crash_dump init:process ptrace;
+
+#============= factory_ssc ==============
+allow factory_ssc default_prop:file { getattr map open read };
+allow factory_ssc kmsg_debug_device:chr_file write;
+
+#============= flags_health_check ==============
+allow flags_health_check bootanim_config_prop:file read;
+allow flags_health_check ctl_tcmd_prop:file read;
+allow flags_health_check dck_prop:file read;
+allow flags_health_check exported_wifi_prop:file read;
+allow flags_health_check media_variant_prop:file read;
+allow flags_health_check net_464xlat_fromvendor_prop:file read;
+allow flags_health_check net_dns_prop:file read;
+allow flags_health_check suspend_prop:file read;
+allow flags_health_check vendor_camera_prop:file read;
+allow flags_health_check vendor_cnd_vendor_prop:file read;
+allow flags_health_check vendor_ctl_port-bridge_prop:file read;
+allow flags_health_check vendor_fastcharge_prop:file read;
+allow flags_health_check vendor_qvr_persist_prop:file read;
+allow flags_health_check vendor_xlat_prop:file read;
+
+#============= fsck ==============
+allow fsck unlabeled:blk_file { getattr ioctl open read write };
+
+#============= gatekeeperd ==============
+allow gatekeeperd init:binder call;
+
+#============= init ==============
+allow init app_data_file:dir { getattr setattr };
+allow init hal_camera_hwservice:hwservice_manager { add find };
+allow init hal_gatekeeper_hwservice:hwservice_manager { add find };
+allow init hal_health_hwservice:hwservice_manager { add find };
+allow init hal_lineage_touch_hwservice:hwservice_manager { add find };
+allow init hal_lineage_trust_hwservice:hwservice_manager { add find };
+allow init hidl_base_hwservice:hwservice_manager add;
+allow init hwservicemanager:binder { call transfer };
+allow init kernel:security check_context;
+allow init privapp_data_file:dir { getattr setattr };
+allow init seapp_contexts_file:file { getattr open read };
+allow init self:capability2 wake_alarm;
+allow init self:netlink_kobject_uevent_socket { bind create getopt read setopt };
+allow init storaged:binder call;
+allow init sysfs:file { open write };
+allow init system_app_data_file:dir { getattr setattr };
+allow init system_file:file execute_no_trans;
+allow init system_server:binder call;
+allow init unlabeled:blk_file { getattr ioctl open read };
+allow init vendor_file:file { execute execute_no_trans };
+allow init vendor_hal_gnss_qti:binder call;
+
+#============= linkerconfig ==============
+allow linkerconfig self:capability kill;
+
+#============= logpersist ==============
+allow logpersist cache_file:dir { add_name open read write };
+allow logpersist cache_file:file { append create getattr ioctl open };
+
+#============= storaged ==============
+allow storaged init:binder { call transfer };
+
+#============= system_server ==============
+allow system_server default_android_service:service_manager add;
+allow system_server init:binder { call transfer };
+allow system_server init:process signal;
+allow system_server users_system_data_file:dir { add_name remove_name setattr write };
+allow system_server users_system_data_file:file { create getattr open read rename setattr unlink write };
+
+#============= system_suspend ==============
+allow system_suspend sysfs:dir { open read };
+allow system_suspend sysfs:file { getattr open read };
+allow system_suspend sysfs_battery:dir { open read };
+allow system_suspend sysfs_battery:file { getattr open read };
+
+#============= toolbox ==============
+allow toolbox cache_file:dir { getattr open read remove_name rmdir write };
+allow toolbox cache_file:file { getattr unlink };
+allow toolbox self:capability { dac_override dac_read_search };
+
+#============= ueventd ==============
+allow ueventd unlabeled:blk_file { create getattr relabelfrom setattr };
+allow ueventd unlabeled:chr_file { create setattr };
+
+#============= unlabeled ==============
+allow unlabeled debugfs:filesystem associate;
+
+#============= vendor_hal_capabilityconfigstore_qti_default ==============
+allow vendor_hal_capabilityconfigstore_qti_default kmsg_debug_device:chr_file write;
+
+#============= vendor_hal_display_color_default ==============
+allow vendor_hal_display_color_default kmsg_debug_device:chr_file write;
+
+#============= vendor_hal_gnss_qti ==============
+allow vendor_hal_gnss_qti init:binder { call transfer };
+allow vendor_hal_gnss_qti kmsg_debug_device:chr_file write;
+
+#============= vendor_init ==============
+allow vendor_init cache_file:dir { add_name create getattr search setattr write };
+allow vendor_init default_prop:file read;
+allow vendor_init self:capability2 mac_admin;
+allow vendor_init unlabeled:chr_file setattr;
+allow vendor_init unlabeled:dir create;
+allow vendor_init vts_status_prop:file read;
+
+#============= vendor_pd_mapper ==============
+allow vendor_pd_mapper kmsg_debug_device:chr_file write;
+
+#============= vendor_qrtr ==============
+allow vendor_qrtr kmsg_debug_device:chr_file write;
+
+#============= vendor_qti_init_shell ==============
+allow vendor_qti_init_shell default_prop:file { getattr map open };
+allow vendor_qti_init_shell system_prop:file { getattr map open read };
+allow vendor_qti_init_shell usb_control_prop:file { getattr map open read };
+
+#============= zygote ==============
+allow zygote self:capability kill;

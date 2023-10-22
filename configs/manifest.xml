@@ -69,7 +69,7 @@
     <hal format="hidl">
         <name>android.hardware.media.c2</name>
         <transport>hwbinder</transport>
-        <fqname>@1.0::IComponentStore/default</fqname>
+        <fqname>@1.2::IComponentStore/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.media.omx</name>
@@ -117,7 +117,6 @@
         <name>android.hardware.soundtrigger</name>
         <transport>hwbinder</transport>
         <fqname>@2.3::ISoundTriggerHw/default</fqname>
-        <!-- to fix -->
     </hal>
     <hal format="hidl">
         <name>android.hardware.tetheroffload.config</name>
@@ -168,7 +167,7 @@
         <name>vendor.lineage.livedisplay</name>
         <transport>hwbinder</transport>
         <fqname>@2.0::IAdaptiveBacklight/default</fqname>
-        <fqname>@2.0::IDisplayColorCalibration/default</fqname>
+        <!-- <fqname>@2.0::IDisplayColorCalibration/default</fqname> -->
         <fqname>@2.0::IDisplayModes/default</fqname>
         <fqname>@2.0::IReadingEnhancement/default</fqname>
         <fqname>@2.0::ISunlightEnhancement/default</fqname>
@@ -187,9 +186,9 @@
         <name>vendor.lineage.touch</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IGloveMode/default</fqname>
-        <fqname>@1.0::IKeyDisabler/default</fqname> <!-- to fix -->
-        <fqname>@1.0::IStylusMode/default</fqname>
-        <fqname>@1.0::ITouchscreenGesture/default</fqname>
+        <!-- <fqname>@1.0::IKeyDisabler/default</fqname> -->
+        <!-- <fqname>@1.0::IStylusMode/default</fqname> -->
+        <!-- <fqname>@1.0::ITouchscreenGesture/default</fqname> -->
     </hal>
     <hal format="hidl">
         <name>vendor.qti.data.factory</name>

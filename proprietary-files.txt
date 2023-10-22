@@ -302,9 +302,26 @@ vendor/lib64/vendor.samsung.hardware.camera.device@5.0.so
 vendor/lib64/vendor.samsung.hardware.camera.provider@4.0-legacy.so
 vendor/lib64/vendor.samsung.hardware.camera.provider@4.0.so
 
-## CDSP
-vendor/lib64/vendor.qti.hardware.dsp@1.0.so
+# CDSP
+vendor/bin/cdsprpcd
+vendor/bin/dspservice
+vendor/etc/init/vendor.qti.cdsprpc-service.rc
+vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc
+vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
+vendor/lib/libcdsp_default_listener.so
+vendor/lib/libcdsprpc.so
+vendor/lib/libfastcvdsp_stub.so
+-vendor/lib/libfastcvopt.so
+vendor/lib/libsdsprpc.so
+vendor/lib/libsysmon_cdsp_skel.so
 vendor/lib/vendor.qti.hardware.dsp@1.0.so
+vendor/lib64/libcdsp_default_listener.so
+vendor/lib64/libcdsprpc.so
+vendor/lib64/libfastcvdsp_stub.so
+-vendor/lib64/libfastcvopt.so
+vendor/lib64/libsdsprpc.so
+vendor/lib64/libsysmon_cdsp_skel.so
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 
 ## Charger
 vendor/bin/hvdcp_opti
@@ -572,8 +589,62 @@ vendor/etc/media_codecs_google_telephony.xml
 vendor/etc/media_codecs_google_video.xml
 vendor/etc/media_codecs_google_video_le.xml
 vendor/etc/media_codecs_performance.xml
+vendor/etc/media_codecs_qcom_video_mpeg2.xml
 vendor/etc/media_profiles_V1_0.xml
 vendor/etc/media_profiles_vendor.xml
+
+vendor/etc/seccomp_policy/mediacodec.policy
+vendor/lib64/libAlacSwDec.so
+vendor/lib64/libApeSwDec.so
+vendor/lib64/libFlacSwDec.so
+vendor/lib64/libMpeg4SwEncoder.so
+vendor/lib64/libOmxAacDec.so
+vendor/lib64/libOmxAlacDec.so
+vendor/lib64/libOmxAlacDecSw.so
+vendor/lib64/libOmxAmrDec.so
+vendor/lib64/libOmxAmrwbplusDec.so
+vendor/lib64/libOmxApeDec.so
+vendor/lib64/libOmxApeDecSw.so
+vendor/lib64/libOmxBlackBar.so
+vendor/lib64/libOmxEvrcDec.so
+vendor/lib64/libOmxG711Dec.so
+vendor/lib64/libOmxQcelp13Dec.so
+vendor/lib64/libOmxSwVdec.so
+vendor/lib64/libOmxSwVencMpeg4.so
+vendor/lib64/libOmxVpp.so
+vendor/lib64/libOmxWmaDec.so
+vendor/lib64/libstagefright_soft_qtiflacdec.so
+vendor/lib64/libswvdec.so
+vendor/lib64/vendor.qti.hardware.vpp@1.1.so
+vendor/lib64/vendor.qti.hardware.vpp@1.2.so
+vendor/lib64/vendor.qti.hardware.vpp@1.3.so
+vendor/lib/libadpcmdec.so
+vendor/lib/libAlacSwDec.so
+vendor/lib/libApeSwDec.so
+vendor/lib/libdsd2pcm.so
+vendor/lib/libFlacSwDec.so
+vendor/lib/libMpeg4SwEncoder.so
+vendor/lib/libOmxAacDec.so
+vendor/lib/libOmxAlacDec.so
+vendor/lib/libOmxAlacDecSw.so
+vendor/lib/libOmxAmrDec.so
+vendor/lib/libOmxAmrwbplusDec.so
+vendor/lib/libOmxApeDec.so
+vendor/lib/libOmxApeDecSw.so
+vendor/lib/libOmxBlackBar.so
+vendor/lib/libOmxDsdDec.so
+vendor/lib/libOmxEvrcDec.so
+vendor/lib/libOmxG711Dec.so
+vendor/lib/libOmxQcelp13Dec.so
+vendor/lib/libOmxSwVdec.so
+vendor/lib/libOmxSwVencMpeg4.so
+vendor/lib/libOmxVpp.so
+vendor/lib/libOmxWmaDec.so
+vendor/lib/libstagefright_soft_qtiflacdec.so
+vendor/lib/libswvdec.so
+vendor/lib/vendor.qti.hardware.vpp@1.1.so
+vendor/lib/vendor.qti.hardware.vpp@1.2.so
+vendor/lib/vendor.qti.hardware.vpp@1.3.so
 
 ## Radio
 # system_ext/lib/vendor.qti.imsrtpservice@3.0.so
@@ -726,6 +797,13 @@ vendor/lib64/libssc_default_listener.so
 vendor/lib64/sensors.bio.so
 vendor/lib64/sensors.grip.so
 vendor/lib64/sensors.ssc.so
+
+## Sound Triggers
+vendor/etc/sound_trigger_mixer_paths_wcd9340.xml
+vendor/etc/sound_trigger_mixer_paths_wcd9340_qrd.xml
+vendor/etc/sound_trigger_platform_info.xml
+vendor/lib/hw/sound_trigger.primary.msmnile.so
+vendor/lib64/hw/sound_trigger.primary.msmnile.so
 
 ## Wi-Fi
 vendor/bin/hw/macloader
