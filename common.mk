@@ -34,10 +34,20 @@ PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.0-impl \
     android.hardware.soundtrigger@2.1-impl \
     android.hardware.soundtrigger@2.3-impl \
-    audio.primary.msmnile
+    audio.primary.msmnile \
+    audio.r_submix.default \
+    audioadsprpcd
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service \
+    android.hardware.bluetooth@1.1.vendor \
+    vendor.qti.hardware.bluetooth_audio@2.1.vendor \
+    vendor.qti.hardware.btconfigstore@2.0.vendor
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -121,7 +131,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.samsung-beyond0qlte
+    android.hardware.biometrics.fingerprint@2.1-service.samsung
 
 # GNSS
 PRODUCT_PACKAGES += \
@@ -176,6 +186,8 @@ PRODUCT_PACKAGES += \
     init.vendor.sysfw.rc \
     ueventd.vendor.rc \
     vaultkeeper_common.rc \
+    wifi_samsung.rc \
+    wifi_brcm.rc \
     fstab.ramplus
 
 # Init scripts from vendor
@@ -204,26 +216,12 @@ PRODUCT_COPY_FILES += \
 #     libkeymaster4_1support.vendor
 
 PRODUCT_PACKAGES += \
-    android.hardware.wifi.hostapd@1.0.vendor \
-    android.hardware.wifi.hostapd@1.1.vendor \
-    android.hardware.wifi.hostapd@1.2.vendor \
-    android.hardware.wifi.offload@1.0.vendor \
-    android.hardware.wifi.supplicant@1.0.vendor \
-    android.hardware.wifi.supplicant@1.1.vendor \
-    android.hardware.wifi.supplicant@1.2.vendor \
-    android.hardware.wifi.supplicant@1.3.vendor \
-    android.hardware.wifi@1.0.vendor \
-    android.hardware.wifi@1.1.vendor \
-    android.hardware.wifi@1.2.vendor \
-    android.hardware.wifi@1.3.vendor \
-    android.hardware.wifi@1.4.vendor \
     android.system.net.netd@1.0.vendor \
     android.system.net.netd@1.1.vendor \
-    android.system.wifi.keystore@1.0.vendor \
     android.hardware.atrace@1.0-service \
     android.hardware.media.c2@1.0.vendor
 
-PRODUCT_PACKAGES += android.hardware.keymaster@4.0-service
+# PRODUCT_PACKAGES += android.hardware.keymaster@4.0-service
 # PRODUCT_PACKAGES += android.hardware.keymaster@4.0-vendor
 PRODUCT_PACKAGES += android.hardware.keymaster@4.1-service
 PRODUCT_PACKAGES += android.hardware.gatekeeper@1.0-service.software
@@ -397,9 +395,8 @@ PRODUCT_BOOT_JARS += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    lineage.touch@1.0-service.samsung.rc \
-    lineage.touch@1.0-service.samsung.xml \
-    lineage.touch@1.0-service.sm8150
+    vendor.lineage.touch@1.0-service.samsung.sm8150.rc \
+    vendor.lineage.touch@1.0-service.sm8150
 
 # Trust HAL
 PRODUCT_PACKAGES += \
@@ -415,4 +412,30 @@ PRODUCT_EXTRA_VNDK_VERSIONS := 28 29 30
 
 # WiFi
 PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
+    hostapd \
+    libwpa_client \
+    WifiOverlay \
+    wpa_cli \
+    wpa_supplicant \
+    wpa_supplicant.conf \
+    android.hardware.wifi.hostapd@1.0.vendor \
+    android.hardware.wifi.hostapd@1.1.vendor \
+    android.hardware.wifi.hostapd@1.2.vendor \
+    android.hardware.wifi.offload@1.0.vendor \
+    android.hardware.wifi.supplicant@1.0.vendor \
+    android.hardware.wifi.supplicant@1.1.vendor \
+    android.hardware.wifi.supplicant@1.2.vendor \
+    android.hardware.wifi.supplicant@1.3.vendor \
+    android.hardware.wifi@1.0.vendor \
+    android.hardware.wifi@1.1.vendor \
+    android.hardware.wifi@1.2.vendor \
+    android.hardware.wifi@1.3.vendor \
+    android.hardware.wifi@1.4.vendor \
+    android.system.wifi.keystore@1.0.vendor \
     WifiOverlay
+
+#     libwifi-hal-ctrl \
+    libwifi-hal-qcom \
+
+    

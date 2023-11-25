@@ -1,5 +1,13 @@
 # Proprietary files - from Samsung package version G9700ZCU7HVJ2, unless pinned
 
+# ADSP
+vendor/bin/adsprpcd
+vendor/etc/init/vendor.qti.adsprpc-service.rc
+vendor/lib/libadsp_default_listener.so
+vendor/lib/libadsprpc.so
+vendor/lib64/libadsp_default_listener.so
+vendor/lib64/libadsprpc.so
+
 ## Ant
 # -lib/libantradio.so
 # -lib64/libantradio.so
@@ -22,6 +30,33 @@ vendor/etc/mixer_paths_pahu.xml
 
 ## Audio Firmware
 vendor/firmware/dax_param.bin
+
+## Bluetooth
+vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0.so
+vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
+vendor/lib/hw/audio.bluetooth_qti.default.so
+vendor/lib/libbluetooth_audio_session_qti.so
+vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so
+vendor/lib/vendor.qti.hardware.bluetooth_sar@1.1.so
+vendor/lib/vendor.samsung.hardware.bluetooth.a2dp@1.0.so
+vendor/lib64/com.qualcomm.qti.bluetooth_audio@1.0.so
+vendor/lib64/hw/audio.bluetooth_qti.default.so
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
+vendor/lib64/libbluetooth_audio_session_qti.so
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
+vendor/lib64/vendor.samsung.hardware.bluetooth@2.0.so
+
+vendor/lib64/com.qualcomm.qti.ant@1.0.so
+vendor/lib/libbt-hidlclient.so
+vendor/lib/libbtnv.so
+vendor/lib64/libbt-hidlclient.so
+vendor/lib64/libbt-vendor.so
+vendor/lib64/libbtnv.so
+vendor/lib/libidl.so
+vendor/lib64/libidl.so
+vendor/lib/libsoc_helper.so
+vendor/lib64/libsoc_helper.so
 
 ## Bluetooth Firmware
 vendor/firmware/bcm4375B0_murata.hcd
@@ -306,7 +341,7 @@ vendor/lib64/vendor.samsung.hardware.camera.provider@4.0.so
 vendor/bin/cdsprpcd
 vendor/bin/dspservice
 vendor/etc/init/vendor.qti.cdsprpc-service.rc
-vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc
+# vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc
 vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 vendor/lib/libcdsp_default_listener.so
 vendor/lib/libcdsprpc.so
@@ -575,7 +610,7 @@ vendor/firmware/nfc/libpn553_fw.so
 
 ## OMX
 vendor/lib64/libSecC2ComponentStore.so
-vendor/etc/vintf/manifest/sec_c2_manifest_default.xml
+# vendor/etc/vintf/manifest/sec_c2_manifest_default.xml
 vendor/etc/media_codecs.xml
 vendor/etc/media_codecs_c2_sec.xml
 vendor/etc/media_codecs_c2_sec_ape.xml

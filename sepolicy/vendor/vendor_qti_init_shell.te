@@ -1,6 +1,11 @@
 allow vendor_qti_init_shell vendor_data_file:dir rw_dir_perms;
 allow vendor_qti_init_shell vendor_data_file:file create_file_perms;
 
+allow vendor_qti_init_shell {
+    sysfs_battery
+    sysfs_battery_writable
+}:file { rw_file_perms setattr };
+
 allow vendor_qti_init_shell { gpu_device kgsl_device }:chr_file r_file_perms;
 allow vendor_qti_init_shell kgsl_device:chr_file getattr;
 allow vendor_qti_init_shell kmsg_device:chr_file w_file_perms;

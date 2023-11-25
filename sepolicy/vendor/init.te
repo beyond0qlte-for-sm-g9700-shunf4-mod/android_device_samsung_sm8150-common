@@ -91,6 +91,9 @@ allow init proc_bluetooth:file setattr;
 allow init proc_fslog:dir r_dir_perms;
 allow init proc_last_kmsg:file setattr;
 
+allow init vendor_sysfs_battery_supply:lnk_file read;
+allow init sysfs_sec_touchscreen:file { open write };
+
 allow init {
     sysfs_battery
     sysfs_lcd_writable

@@ -1,0 +1,4 @@
+
+type richwave_fm_service, system_server_service, service_manager_type;
+
+allow system_server richwave_fm_service:service_manager { add find };

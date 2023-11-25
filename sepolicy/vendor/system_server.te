@@ -14,3 +14,7 @@ r_dir_file(system_server, sysfs_ski_hwparam_readable);
 allow system_server vendor_sysfs_graphics:file r_file_perms;
 
 binder_call(system_server, vaultkeeperd)
+
+allow system_server users_system_data_file:dir create_dir_perms;
+allow system_server users_system_data_file:file create_file_perms;
+allow system_server users_system_data_file:{ dir file } relabelfrom;

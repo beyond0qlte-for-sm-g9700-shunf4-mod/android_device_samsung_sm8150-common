@@ -8,6 +8,7 @@ allow hal_health_default {
     vendor_log_file
 }:file create_file_perms;
 
+allow hal_health_default efs_file:dir rw_dir_perms;
 allow hal_health_default app_efs_file:dir rw_dir_perms;
 allow hal_health_default { battery_efs_file vendor_log_file }:dir create_dir_perms;
 

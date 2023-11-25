@@ -5,30 +5,22 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := lineage.touch@1.0-service.samsung.rc
+LOCAL_MODULE := vendor.lineage.touch@1.0-service.samsung.sm8150.rc
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/init
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_ETC)/init
 LOCAL_SRC_FILES := $(LOCAL_MODULE)
 
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-
-LOCAL_MODULE := lineage.touch@1.0-service.samsung.xml
-LOCAL_MODULE_TAGS  := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/vintf/manifest
-LOCAL_SRC_FILES := $(LOCAL_MODULE)
-
-include $(BUILD_PREBUILT)
 
 LOCAL_PATH := hardware/samsung/hidl/touch
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := lineage.touch@1.0-service.sm8150
-LOCAL_MODULE_STEM := lineage.touch@1.0-service.samsung
+LOCAL_MODULE := vendor.lineage.touch@1.0-service.sm8150
+LOCAL_MODULE_STEM := vendor.lineage.touch@1.0-service.sm8150
 LOCAL_MODULE_TAGS  := optional
 
 LOCAL_MODULE_RELATIVE_PATH := hw
@@ -43,8 +35,7 @@ LOCAL_SRC_FILES := \
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
 
 LOCAL_REQUIRED_MODULES := \
-    lineage.touch@1.0-service.samsung.rc \
-    lineage.touch@1.0-service.samsung.xml
+    vendor.lineage.touch@1.0-service.samsung.sm8150.rc
 
 LOCAL_SHARED_LIBRARIES := \
     libbase \
@@ -52,5 +43,7 @@ LOCAL_SHARED_LIBRARIES := \
     libhidlbase \
     libutils \
     vendor.lineage.touch@1.0
+
+LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_EXECUTABLE)

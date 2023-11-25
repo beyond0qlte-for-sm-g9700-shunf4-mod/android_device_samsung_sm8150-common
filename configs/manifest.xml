@@ -5,6 +5,26 @@
         <fqname>IKeystoreService/default</fqname>
     </hal> -->
     <hal format="hidl">
+        <name>vendor.display.postproc</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayPostproc</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDisplayPostproc/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.display.color</name>
+        <transport>hwbinder</transport>
+        <version>1.3</version>
+        <interface>
+            <name>IDisplayColor</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.3::IDisplayColor/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.atrace</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IAtraceDevice/default</fqname>
@@ -171,16 +191,6 @@
         <fqname>@2.0::IDisplayModes/default</fqname>
         <fqname>@2.0::IReadingEnhancement/default</fqname>
         <fqname>@2.0::ISunlightEnhancement/default</fqname>
-    </hal>
-    <!-- https://github.com/LineageOS/android_device_xiaomi_msm8996-common/blob/lineage-20/manifest.xml -->
-    <hal format="hidl">
-        <name>vendor.display.color</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IDisplayColor</name>
-            <instance>default</instance>
-        </interface>
     </hal>
     <hal format="hidl">
         <name>vendor.lineage.touch</name>

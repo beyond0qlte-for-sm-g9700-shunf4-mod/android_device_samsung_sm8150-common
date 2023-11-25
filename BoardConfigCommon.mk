@@ -103,7 +103,7 @@ BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 printk.devkmsg=on loop.max_part=7 audit=1
 # SELinux - comment out this!
 # Note: because of CONFIG_PROC_AVC, SELinux avc messages will be logged to /proc/avc_msg under recovery (where there is no logd.auditd)
-BOARD_KERNEL_CMDLINE += loglevel=7 androidboot.selinux=permissive
+# BOARD_KERNEL_CMDLINE += loglevel=7 androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_KERNEL_PAGESIZE := 4096
@@ -214,6 +214,24 @@ SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
 
 # Vibrator
 $(call soong_config_set,samsungVibratorVars,duration_amplitude,true)
+
+# Wifi
+BOARD_WLAN_DEVICE := bcmdhd
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+WPA_SUPPLICANT_USE_HIDL := true
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+QC_WIFI_HIDL_FEATURE_DUAL_AP := true
+WIFI_HIDL_FEATURE_AWARE := true
+WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/dhd/parameters/firmware_path"
+WIFI_DRIVER_FW_PATH_STA          := "/vendor/firmware/bcmdhd_sta.bin_b1"
+# WIFI_DRIVER_FW_PATH_AP           := "/vendor/etc/wifi/bcmdhd_apsta.bin"
+# WIFI_BAND                        := 802_11_ABG
+BOARD_HAVE_SAMSUNG_WIFI := true
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

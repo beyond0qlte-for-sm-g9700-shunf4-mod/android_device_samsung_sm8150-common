@@ -25,6 +25,9 @@ allow hal_bluetooth_default vendor_log_file:file create_file_perms;
 
 allow hal_bluetooth_default proc_bluetooth_writable:dir search;
 
+allow hal_bluetooth_default proc_bt_sleep:dir search;
+allow hal_bluetooth_default proc_bt_sleep:file w_file_perms;
+
 allow hal_bluetooth_default property_socket:sock_file write;
 allow hal_bluetooth_default init:unix_stream_socket connectto;
 

@@ -42,14 +42,17 @@ vendor/lib64/hw/android.hardware.gnss@2.1-impl-qti.so
 
 mount /vendor; toybox vi /vendor/etc/init/hw/init.qcom.rc
 
-service persistentLogging /system/bin/logcat -r 65536 -n 9 -v threadtime -f /cache/logs/log
-    user system
+service persistentLogging /system/bin/logcat -r 65536 -n 9 -v threadtime -f /data/misc/logd/log
+    user logd
     group system log
     disabled
 
-on post-fs
-    exec -- /system/bin/rm -rf /cache/logs
-    mkdir /cache/logs 0775 system log
+on post-fs-data
+    exec u:r:su:s0 -- /system/bin/sh -c "/system/bin/rm -rf /data/misc/logd/log"
+    exec u:r:su:s0 -- /system/bin/sh -c "/system/bin/rm -rf /data/misc/logd/log*"
+    exec u:r:su:s0 -- /system/bin/sh -c "/system/bin/mkdir /data/misc/logd 0750 logd log"
+    exec u:r:su:s0 -- /system/bin/sh -c "/system/bin/chcon u:object_r:misc_logd_file:s0 /data/misc/logd"
+    mkdir /data/misc/logd 0750 logd log
     start persistentLogging
 
 ro.adb.secure=0
@@ -60,7 +63,10 @@ sys.usb.config=adb
 ro.default_usb_mode=0
 config.disable_consumerir=true
 
-adb shell 'mount /vendor; { echo -en "ro.adb.secure=0\nro.secure=0\nro.debuggable=1\npersist.sys.usb.config=adb\nsys.usb.config=adb\nro.default_usb_mode=0\n\n"; cat /vendor/build.prop; } > /cache/vendor.build.prop.tmp; cat /cache/vendor.build.prop.tmp > /vendor/build.prop; { cat /vendor/etc/init/hw/init.qcom.rc; echo -en "\n\nservice persistentLogging /system/bin/logcat -r 65536 -n 9 -v threadtime -f /cache/logs/log\n    user system\n    group system log\n    disabled\n\non post-fs\n    exec -- /system/bin/rm -rf /cache/logs\n    mkdir /cache/logs 0775 system log\n    start persistentLogging\n\n"; } > /cache/init.qcom.rc.tmp; cat /cache/init.qcom.rc.tmp > /vendor/etc/init/hw/init.qcom.rc;'
+adb shell 'mount /vendor; mount -o rw,remount /vendor; mkdir -p /mnt/system; mount -o rw /dev/block/bootdevice/by-name/system /mnt/system; { cat /mnt/system/system/build.prop; echo -en "\n\nro.adb.secure=0\nro.secure=0\nro.debuggable=1\npersist.sys.usb.config=adb\nsys.usb.config=adb\nro.default_usb_mode=0\n\n"; } > /cache/system.build.prop.tmp; cat /cache/system.build.prop.tmp > /mnt/system/system/build.prop; { cat /vendor/etc/init/hw/init.qcom.rc; echo -en "\n\nservice persistentLogging /system/bin/logcat -r 65536 -n 9 -v threadtime -f /data/misc/logd/log\n    user logd\n    group system log\n    disabled\n\non post-fs-data\n    exec u:r:su:s0 -- /system/bin/sh -c \"/system/bin/rm -rf /data/misc/logd/log\"\n    exec u:r:su:s0 -- /system/bin/sh -c \"/system/bin/rm -rf /data/misc/logd/log*\"\n    exec u:r:su:s0 -- /system/bin/sh -c \"/system/bin/mkdir /data/misc/logd 0750 logd log\"\n    exec u:r:su:s0 -- /system/bin/sh -c \"/system/bin/chcon u:object_r:misc_logd_file:s0 /data/misc/logd\"\n    mkdir /data/misc/logd 0750 logd log\n    start persistentLogging\n\n"; } > /cache/init.qcom.rc.tmp; cat /cache/init.qcom.rc.tmp > /vendor/etc/init/hw/init.qcom.rc;'
+
+
+adb pull /proc/last_kmsg; adb shell 'dmesg' > dmesg; adb pull /proc/avc_msg; adb shell 'mount /data; mount /vendor; mount /cache; mount -o rw,remount /; mount -o rw,remount /vendor; mount -o rw,remount /cache'; rm -rf tombstones/ logcat_logs/; adb pull /data/tombstones; adb pull /data/misc/logd ./logcat_logs
 
 
 #============= apexd ==============
@@ -188,3 +194,6 @@ allow vendor_qti_init_shell usb_control_prop:file { getattr map open read };
 
 #============= zygote ==============
 allow zygote self:capability kill;
+
+
+init: Do not have permissions to set 'ro.recovery.usb.adb.pid' to 'D001' in property file '/vendor/build.prop': SELinux permission check failed
